@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the Sleep Apnea Model to improve your sleep quality with breathing exercises, educational resources, and personalized insights.">
+    <meta name="keywords" content="sleep apnea, breathing exercises, sleep health, sleep model">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Sleep Apnea Model</title>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <h1>Welcome to the Sleep Apnea Model</h1>
+            <p>Your journey to better sleep starts here.</p>
+            <button onclick="location.href='#get-started'">Get Started</button>
+            <button onclick="location.href='#learn-more'">Learn More</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Prediction Form Section -->
+        <section id="prediction-form">
+            <h2>Predict Sleep Apnea</h2>
+            <form id="apnea-form">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>Age: Enter your age in years.</p>
+                    </div>
+                </div>
+
+                <label for="bmi">BMI:</label>
+                <input type="number" id="bmi" name="bmi" step="0.1" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>BMI: Enter your Body Mass Index (weight in kg / height in m²).</p>
+                    </div>
+                </div>
+
+                <label for="ahi">AHI (Apnea-Hypopnea Index):</label>
+                <input type="number" id="ahi" name="ahi" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>AHI: Enter your Apnea-Hypopnea Index.</p>
+                    </div>
+                </div>
+
+                <label for="oxygen_saturation">Oxygen Saturation (%):</label>
+                <input type="number" id="oxygen_saturation" name="oxygen_saturation" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>Oxygen Saturation: Enter your average oxygen saturation level (%).</p>
+                    </div>
+                </div>
+
+                <label for="ecg_heart_rate">ECG Heart Rate (bpm):</label>
+                <input type="number" id="ecg_heart_rate" name="ecg_heart_rate" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>ECG Heart Rate: Enter your average heart rate in beats per minute.</p>
+                    </div>
+                </div>
+
+                <label for="spo2">SpO2 (%):</label>
+                <input type="number" id="spo2" name="spo2" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>SpO2: Enter your oxygen saturation level (%).</p>
+                    </div>
+                </div>
+
+                <label for="nasal_airflow">Nasal Airflow (L/min):</label>
+                <input type="number" id="nasal_airflow" name="nasal_airflow" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>Nasal Airflow: Enter your average nasal airflow in liters per minute.</p>
+                    </div>
+                </div>
+
+                <label for="chest_movement">Chest Movement (mm):</label>
+                <input type="number" id="chest_movement" name="chest_movement" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>Chest Movement: Enter your average chest movement in millimeters.</p>
+                    </div>
+                </div>
+
+                <label for="snoring_intensity">Snoring Intensity (dB):</label>
+                <input type="number" id="snoring_intensity" name="snoring_intensity" required>
+                <div class="help-tooltip">
+                    <span>?</span>
+                    <div class="tooltip-text">
+                        <p>Snoring Intensity: Enter your average snoring intensity in decibels.</p>
+                    </div>
+                </div>
+
+                <button type="submit">Predict</button>
+            </form>
+            <div id="prediction-result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sleep Apnea Model. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

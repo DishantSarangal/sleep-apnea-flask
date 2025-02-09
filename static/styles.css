@@ -1,0 +1,270 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff); /* Soft gradient background */
+    color: #333; /* Darker text for better readability */
+    line-height: 1.6;
+}
+
+header {
+    background-image: url('{{ url_for("static", filename="sleep.jpg") }}'); /* Use Flask's url_for to reference the image */
+    background-size: cover; /* Ensure the image covers the entire header */
+    background-position: center; /* Center the image */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+}
+
+.banner h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+.banner p {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.banner button {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 25px; /* Rounded button */
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.banner button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5); /* Glow effect on hover */
+    background-color: #0056b3; /* Change color on hover */
+}
+
+/* Prediction Form Styles */
+#prediction-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0; /* Light border for definition */
+}
+
+#prediction-form h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 25px;
+}
+
+#prediction-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+#prediction-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#prediction-form input:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styles */
+#prediction-form button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+#prediction-form button:hover {
+    transform: translateY(-3px);
+    box-shadow:     0 8px 20px rgba(0, 123, 255, 0.5);
+    background-color: #0056b3; /* Change color on hover */
+}
+
+/* Tooltip Styles */
+.help-tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.help-tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the question mark */
+    left: 50%;
+    margin-left: -100px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.help-tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Position below the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #007bff transparent transparent transparent; /* Arrow pointing down */
+}
+
+.help-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.help-tooltip span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.help-tooltip span:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Prediction Result Styles */
+#prediction-result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#prediction-result p {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#prediction-result p.error {
+    color: red;
+    background-color: #ffe6e6;
+}
+
+#prediction-result p.success {
+    color: green;
+    background-color: #e6ffe6;
+}
+
+/* Loading Spinner Styles */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 2.5em;
+    }
+
+    .banner p {
+        font-size: 1.2em;
+    }
+
+    .banner button {
+        padding: 10px 20px;
+    }
+
+    #prediction-form {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    #prediction-form input {
+        width: 90%;
+    }
+}
